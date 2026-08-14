@@ -18,22 +18,12 @@ function bindActions() {
     if (!action) return;
     if (action === 'settings') { renderSettings(); showView('settings-view'); }
     if (action === 'today') { state.date = todayKey(); await loadDay(state.date); showView('daily-view'); }
-    if (action === 'previous-day') { state.date = shiftDate(state.date, -1); await loadDay(state.date); showView('daily-view'); window.scrollTo(0, 0); }
-    if (action === 'next-day' && state.date < todayKey()) { state.date = shiftDate(state.date, 1); await loadDay(state.date); showView('daily-view'); window.scrollTo(0, 0); }
+    if (action === 'previous-day') { state.date = shiftDate(state.date, -1); await loadDay(state.date); showView('daily-view'); }
+    if (action === 'next-day' && state.date < todayKey()) { state.date = shiftDate(state.date, 1); await loadDay(state.date); showView('daily-view'); }
   });
   $('#onboarding-form').addEventListener('submit', saveOnboarding);
   $('#settings-form').addEventListener('submit', saveSettings);
   $('#day-form').addEventListener('input', saveDayInput);
-  let startX = null;
-  $('#daily-view').addEventListener('touchstart', (event) => { startX = event.changedTouches[0].screenX; }, { passive: true });
-  $('#daily-view').addEventListener('touchend', async (event) => {
-    if (startX === null) return;
-    const delta = event.changedTouches[0].screenX - startX; startX = null;
-    if (Math.abs(delta) < 55) return;
-    if (delta < 0 && state.date < todayKey()) { state.date = shiftDate(state.date, 1); await loadDay(state.date); }
-    if (delta > 0) { state.date = shiftDate(state.date, -1); await loadDay(state.date); }
-    window.scrollTo(0, 0);
-  }, { passive: true });
 }
 
 async function saveOnboarding(event) {
