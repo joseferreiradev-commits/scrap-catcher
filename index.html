@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#4b55c5">
+    <meta name="description" content="A private, local-first daily spending catcher.">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="static/styles.css?v=4">
+    <title>Daily Money · Scrap Catcher</title>
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" data-action="today" aria-label="Daily Money home"><span class="brand-mark">$</span><span>Daily Money</span></a>
+        <button class="text-button" type="button" data-action="settings">Settings</button>
+      </header>
+      <main class="main-content">
+        <section id="onboarding-view" class="view is-hidden" aria-labelledby="onboarding-title">
+          <div class="onboarding-wrap"><span class="eyebrow">A tiny daily practice</span><h1 id="onboarding-title">Catch the money<br><em>you didn’t spend.</em></h1><p class="lede">Set a plan for breakfast, lunch, and dinner. At the end of the day, see what stayed in your pocket.</p><form id="onboarding-form" class="setup-form"><div class="setup-heading"><span>Set your usual daily buckets</span><span>Whole dollars for now</span></div><div class="setup-grid"><label>Breakfast<input required min="0" step="1" type="number" name="breakfast" inputmode="numeric" placeholder="$ 0"></label><label>Lunch<input required min="0" step="1" type="number" name="lunch" inputmode="numeric" placeholder="$ 0"></label><label>Dinner<input required min="0" step="1" type="number" name="dinner" inputmode="numeric" placeholder="$ 0"></label></div><p id="onboarding-error" class="form-error" role="alert"></p><button class="primary-button" type="submit">Start catching scraps <span aria-hidden="true">→</span></button></form><p class="privacy-note"><span aria-hidden="true">✦</span> Private by design. Your money data stays in this browser.</p></div>
+        </section>
+        <section id="daily-view" class="view is-hidden" aria-labelledby="daily-title">
+          <div class="daily-intro"><div><span class="eyebrow">Your daily catch</span><h1 id="daily-title">Keep an eye<br>on the <em>little wins.</em></h1></div><p class="daily-copy">Planned money is a ceiling, not a target. Log what you actually spent and let the leftover reveal itself.</p></div>
+          <div class="date-nav" aria-label="Date navigation"><button class="nav-button" type="button" data-action="previous-day" aria-label="Previous day">←</button><button class="date-label" type="button" data-action="today"><strong id="date-relative">Today</strong><span id="date-full"></span></button><button class="nav-button" type="button" data-action="next-day" aria-label="Next day">→</button></div>
+          <form id="day-form" class="bucket-list"><div id="bucket-breakfast" class="bucket-card"></div><div id="bucket-lunch" class="bucket-card"></div><div id="bucket-dinner" class="bucket-card"></div></form>
+          <section id="scrap-summary" class="scrap-summary" aria-live="polite"><div><span class="summary-kicker">TODAY'S SCRAPS</span><strong id="scrap-total">$0</strong><span id="scrap-caption">No entry saved for this day</span></div><div class="summary-mark" aria-hidden="true">✦</div></section>
+          <p class="daily-footnote"><span aria-hidden="true">↔</span> Swipe or use the arrows to visit another day. Future dates are unavailable.</p>
+        </section>
+        <section id="settings-view" class="view is-hidden" aria-labelledby="settings-title"><div class="settings-head"><button class="back-button" type="button" data-action="today">← Back</button><span class="eyebrow">Preferences</span></div><h1 id="settings-title">Your defaults.</h1><p class="lede">These amounts set the starting plan for each new day. Changing them will not rewrite past dates.</p><form id="settings-form" class="settings-form"><div id="settings-fields"></div><p id="settings-error" class="form-error" role="alert"></p><button class="primary-button" type="submit">Save defaults <span aria-hidden="true">→</span></button></form><div class="local-note"><strong>Local-only storage</strong><span>There is no account, sync, or server copy of your data.</span></div></section>
+        <div id="storage-error" class="storage-error is-hidden" role="alert">Your browser could not access local storage. Your entries may not be saved.</div>
+      </main>
+      <footer class="site-footer"><span>Daily Money</span><span>Private · Local-first · No accounts</span></footer>
+    </div>
+    <script src="static/app.js?v=4" defer></script>
+  </body>
+</html>
