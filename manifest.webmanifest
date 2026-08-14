@@ -1,1 +1,1 @@
-{"name":"Daily Money","short_name":"Daily Money","start_url":"./","scope":"./","display":"standalone","background_color":"#f6f7fb","theme_color":"#4b55c5","description":"A private, local-first daily spending catcher.","icons":[]}
+{"id":"./","name":"Scrap Catcher","short_name":"Scrap Catcher","start_url":"./","scope":"./","display":"standalone","background_color":"#f6f7fb","theme_color":"#4b55c5","description":"A private, local-first daily spending catcher.","icons":[{"src":"static/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
