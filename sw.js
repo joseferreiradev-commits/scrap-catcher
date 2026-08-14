@@ -1,4 +1,4 @@
-const CACHE = 'scrap-catcher-v3';
+const CACHE = 'scrap-catcher-v4';
 const ASSETS = ['./', './index.html', './static/styles.css?v=5', './static/app.js?v=5', './manifest.webmanifest', './static/icon.svg', './static/icon-192.svg', './static/icon-512.svg'];
 self.addEventListener('install', (event) => event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(ASSETS.map((asset) => cache.add(asset).catch(() => null))))));
 self.addEventListener('activate', (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim())));
