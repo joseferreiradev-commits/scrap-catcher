@@ -1,4 +1,4 @@
-# Daily Money — Scrap Catcher
+# Scrap Catcher
 
 A private, local-first PWA for noticing money that was planned but not spent.
 
